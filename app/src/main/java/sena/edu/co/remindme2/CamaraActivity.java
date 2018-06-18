@@ -1,5 +1,6 @@
 package sena.edu.co.remindme2;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Toast;
 
 public class CamaraActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -39,8 +41,11 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
         anim_backward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_backward);
 
         fab_plus.setOnClickListener(this);
+        fab_galery.setOnClickListener(this);
+        fab_share.setOnClickListener(this);
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onClick(View view) {
         switch (view.getId())
@@ -52,17 +57,27 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
                     fab_galery.startAnimation(anim_close);
                     fab_share.startAnimation(anim_close);
                     fab_galery.setClickable(false);
-                    fab_galery.setClickable(false);
+                    fab_share.setClickable(false);
+                    fab_galery.setVisibility(View.INVISIBLE);
+                    fab_share.setVisibility(View.INVISIBLE);
                     isOpen = false;
                 } else {
                     fab_plus.startAnimation(anim_forward);
                     fab_galery.startAnimation(anim_open);
                     fab_share.startAnimation(anim_open);
                     fab_galery.setClickable(true);
-                    fab_galery.setClickable(true);
+                    fab_share.setClickable(true);
+                    fab_galery.setVisibility(View.VISIBLE);
+                    fab_share.setVisibility(View.VISIBLE);
                     isOpen = true;
                 }
 
+                break;
+            case R.id.fab_galery:
+                Toast.makeText(this,"Galery", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.fab_share:
+                Toast.makeText(this,"Share", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
