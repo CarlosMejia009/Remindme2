@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Remind-me</string>
     <string name="title_activity_camara">CamaraActivity</string>
+
+
+    <!-- Fragment Galery-->
+    <string name="title_galery">Galeria</string>
+
 </resources>
