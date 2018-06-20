@@ -13,13 +13,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
-
 import java.io.File;
 
-import sena.edu.co.remindme2.Fragments.GaleryFragment;
-
-public class CamaraActivity extends AppCompatActivity implements View.OnClickListener,
-        GaleryFragment.OnFragmentInteractionListener{
+public class CamaraActivity extends AppCompatActivity implements View.OnClickListener{
 
     FloatingActionButton fab_plus;
     FloatingActionButton fab_camara;
@@ -32,7 +28,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
     Animation anim_backward;
     Boolean isOpen = false;
 
-    GaleryFragment galeryFragment; // Nuevo
 
     private final String CARPETA_RAIZ="Galeria/";
     private final String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
@@ -49,7 +44,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        galeryFragment = new GaleryFragment(); // Nuevo
 
         fab_plus = (FloatingActionButton) findViewById(R.id.fab_plus);
         fab_camara = (FloatingActionButton) findViewById(R.id.fab_camara);
@@ -70,7 +64,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
         fab_galery.setOnClickListener(this);
         fab_share.setOnClickListener(this);
 
-        getSupportFragmentManager().beginTransaction().add(R.id.fl_contenedor,galeryFragment).commit(); // Nuevo
 
     }
 
@@ -134,7 +127,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(this,"Camara", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fab_galery:
-                transaction.replace(R.id.fl_contenedor,galeryFragment); // Nuevo
                 Intent intentGalery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 intentGalery.setType("image/");
                 Toast.makeText(this,"Galery", Toast.LENGTH_SHORT).show();
@@ -151,11 +143,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(this,"Share", Toast.LENGTH_SHORT).show();
                 break;
         }
-    }
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 }
 
