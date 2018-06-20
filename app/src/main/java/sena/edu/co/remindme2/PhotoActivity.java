@@ -1,5 +1,7 @@
 package sena.edu.co.remindme2;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +21,9 @@ public class PhotoActivity extends AppCompatActivity implements View.OnClickList
     Animation anim_forward;
     Animation anim_backward;
 
+    Intent intent = getIntent();
+    Bitmap bitmap = (Bitmap) intent.getParcelableExtra("BitmapImage");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +31,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnClickList
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+       // imgPrueba.setImageBitmap(bitmap);
     }
 
     @Override

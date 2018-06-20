@@ -120,8 +120,10 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
                                     Log.i("Ruta de la Imagen ","Path: "+path);
                                 }
                             });
+                    Intent intentPhoto = new Intent(this, PhotoActivity.class); // Nuevo
                     Bitmap bitmap = BitmapFactory.decodeFile(path);
-                    imgPrueba.setImageBitmap(bitmap);
+                    intentPhoto.putExtra("BitmapImage", bitmap);
+                    // imgPrueba.setImageBitmap(bitmap);
                     break;
             }
 
@@ -132,12 +134,11 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
     @SuppressLint("RestrictedApi")
     @Override
     public void onClick(View view) {
-        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        switch (view.getId())
-        {
+
+        switch (view.getId()) {
             case R.id.fab_plus:
 
-                if(isOpen){
+                if (isOpen) {
                     fab_plus.startAnimation(anim_backward);
                     fab_camara.startAnimation(anim_close);
                     fab_galery.startAnimation(anim_close);
@@ -165,9 +166,9 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
 
                 break;
             case R.id.fab_camara:
-                /*transaction.replace(R.id.fl_contenedor,camaraFragment); // Nuevo*/
                 tomarFoto();
                 Toast.makeText(this,"Camara", Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.fab_galery:
                 Intent intentGalery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
