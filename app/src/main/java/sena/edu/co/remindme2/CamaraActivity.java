@@ -97,7 +97,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
         Intent intentCamara = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intentCamara.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagen));
         startActivityForResult(intentCamara, COD_IMAGEN);
-
     }
 
     @Override
