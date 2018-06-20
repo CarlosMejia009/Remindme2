@@ -132,7 +132,6 @@ public class CamaraActivity extends AppCompatActivity implements View.OnClickLis
     @SuppressLint("RestrictedApi")
     @Override
     public void onClick(View view) {
-        android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (view.getId())
         {
             case R.id.fab_plus:
