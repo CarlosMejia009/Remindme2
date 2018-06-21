@@ -24,23 +24,8 @@
 
     <include
         android:id="@+id/include2"
-        layout="@layout/content_photo"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="117dp" />
+        layout="@layout/content_photo" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="323dp"
-        android:layout_height="439dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/include2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/include2"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout2"
-        app:srcCompat="@android:color/darker_gray" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_plus_photo"
@@ -48,13 +33,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="416dp"
         android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.975"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="511dp" />
+        app:layout_constraintTop_toTopOf="@+id/imgPhoto"
+        app:layout_constraintVertical_bias="1.0" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_audio_photo"
@@ -80,13 +69,16 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_text"
         android:visibility="invisible"
         app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/fab_audio_photo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </android.support.constraint.ConstraintLayout>
